@@ -11,7 +11,8 @@ let a1 = [1,2,3,4,5,6,7,8,9],
     a9 = ['a', 'b', 'c'],
     aa8 = [1,2,3],
     aa9 = ['a', 'b', 'c'],
-    s1 = "  asta ., astAo edwe we  weasta   we asFAFt a ";
+    s1 = "  asta ., astAo edwe we  weasta   we asFAFt a ",
+    objectArr = [{id:101,x:"one"}, {id:102,x:"two"}, {id:103,x:"three"}, {id:104,x:"four"}, {id:105,x:"five"}];
 
 
 
@@ -144,6 +145,9 @@ arr2.join = function(){
     //...
     return Array.prototype.join.apply(this, arguments);
 }
+
+//14.1
+let findIndexById = objectArr.findIndex(el => el.id === 103);
 
 
 
