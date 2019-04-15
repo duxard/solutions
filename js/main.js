@@ -12,11 +12,13 @@ let a1 = [1,2,3,4,5,6,7,8,9],
     aa8 = [1,2,3],
     aa9 = ['a', 'b', 'c'],
     s1 = "  asta ., astAo edwe we  weasta   we asFAFt a ",
-    objectArr = [{id:101,x:"one"}, {id:102,x:"two"}, {id:103,x:"three"}, {id:104,x:"four"}, {id:105,x:"five"}];
+    s2 = "abcdefg",
+    objectArr = [{id:101,x:"one"}, {id:102,x:"two"}, {id:103,x:"three"}, {id:104,x:"four"}, {id:105,x:"five"}],
+    objToClone = {bool: true, x: 1000, band: "Limp Bizkit"};
 
 
 
-//1
+//1 
 let na1 = a1.slice(3); //first three
 let na2 = a1.splice(0,3); //last 3
 let na3 = a1.splice(3);   //last 3 - ...
@@ -148,6 +150,143 @@ arr2.join = function(){
 
 //14.1
 let findIndexById = objectArr.findIndex(el => el.id === 103);
+
+let findIndexSecond = objectArr.map(el => el.x).indexOf("Three".toLowerCase());
+
+//15
+let newOb1 = {},
+    newOb2 = {};
+
+/* first method*/
+for(let key in objToClone){
+    newOb1[key] = objToClone[key]
+}
+
+/* second method*/
+Object.assign(newOb2, objToClone);
+
+//15.1 - Iterate over object
+for(let [key, val] of Object.entries(objToClone)){
+//    cl(key, val);
+}
+
+//16
+let myMap = new Map([
+    ['one', 'first record'],
+    ['two', 'second record']
+]);
+
+myMap.set('three', 'third record');
+
+for(let key of myMap.entries()){
+//    cl(key)
+}
+
+//17.1
+let mySet = new Set(a5);
+mySet.add('elem');
+
+let itSet = mySet[Symbol.iterator]();
+let itVal = itSet.next();
+
+while(!itVal.done){
+//    cl(itVal.value);
+    itVal = itSet.next();
+}
+
+
+//second meth
+for(let key of mySet.values()){
+//    cl(key)
+}
+
+//third meth
+//mySet.forEach(el => console.log(el));
+
+//17
+for(let char of s2){
+//    cl(char);
+}
+
+let itChar = s2[Symbol.iterator]();
+let itCharNext = itChar.next();
+while(!itCharNext.done){
+//    cl(itCharNext.value);
+    itCharNext = itChar.next()
+}
+
+//18
+const Service = (function(){
+    
+    let privateValue = null,
+        symbolValue = Symbol('symbolValue');
+    
+    function privateMethGet(){
+        return privateValue;
+    }
+    
+    function privateMethSet(newVal){
+        privateValue = newVal;
+    }
+    
+    function Service(publicVal, name){
+        this.publicVal = publicVal;
+        this[symbolValue] = name;
+    }
+    
+    Service.prototype.publicMethGet = function(){
+        return this.publicVal;
+    }
+    
+
+    Service.prototype.publicGetPrivateVal = function(){
+        return privateMethGet();
+    }
+    
+    Service.prototype.publicSetPrivateVal = function(x){
+        privateMethSet(x);
+    }
+    
+    return Service;
+    
+})();
+
+let serv = new Service(999, "serenity");
+serv.publicSetPrivateVal(222);
+
+
+//using symbols as private members
+
+const Person = (function(){
+    
+    const firstName = Symbol('firstName');
+    const lastName = Symbol('lastName');
+    
+    class Person {
+        constructor(p1, p2){
+            this[firstName] = p1;
+            this[lastName] = p2;
+        }
+        
+        getFullName(){
+            return `${this[firstName]} ${this[lastName]}`
+        }
+    }
+    
+    return Person;
+})();
+
+let person = new Person("John", "Polloc");
+cl( person.getFullName() )
+
+
+
+
+
+
+
+
+
 
 
 
