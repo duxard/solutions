@@ -14,7 +14,26 @@ let a1 = [1,2,3,4,5,6,7,8,9],
     s1 = "  asta ., astAo edwe we  weasta   we asFAFt a ",
     s2 = "abcdefg",
     objectArr = [{id:101,x:"one"}, {id:102,x:"two"}, {id:103,x:"three"}, {id:104,x:"four"}, {id:105,x:"five"}],
-    objToClone = {bool: true, x: 1000, band: "Limp Bizkit"};
+    objToClone = {bool: true, x: 1000, band: "Limp Bizkit"},
+    
+    nestedProps = {
+        s: false,
+        y: 100,
+        x: {
+            x:{
+                s: false,    
+                x: {
+                    s: false,
+                    y: 1000,
+                    x: {
+                        x: {
+                            s: false
+                        }
+                    }
+                }
+            }
+        }
+    };
 
 
 
@@ -216,79 +235,87 @@ while(!itCharNext.done){
 }
 
 //18
-const Service = (function(){
-    
-    let privateValue = null,
-        symbolValue = Symbol('symbolValue');
-    
-    function privateMethGet(){
-        return privateValue;
-    }
-    
-    function privateMethSet(newVal){
-        privateValue = newVal;
-    }
-    
-    function Service(publicVal, name){
-        this.publicVal = publicVal;
-        this[symbolValue] = name;
-    }
-    
-    Service.prototype.publicMethGet = function(){
-        return this.publicVal;
-    }
-    
 
-    Service.prototype.publicGetPrivateVal = function(){
-        return privateMethGet();
+function debouncer(f, time){
+    let timeout;
+    return function(...args){
+        if(timeout){
+            clearTimeout(timeout);
+            
+        }
+        timeout = setTimeout(() => {f(...args)}, time);
     }
-    
-    Service.prototype.publicSetPrivateVal = function(x){
-        privateMethSet(x);
+}
+
+//19
+
+function throttled(fn, delay){
+    let  lastExecution = 0;
+    return function(...args) {
+        const now = (new Date()).getTime();
+        if(now - lastExecution < delay) {
+            return;
+        }
+        lastExecution = now;
+        return fn(...args);
     }
-    
-    return Service;
-    
+}
+
+//20 set all certain properties to "true" in object
+
+const setAllInnerPropsTotrue = (function(){
+    return function f(obj){
+        if(Object.getOwnPropertyNames(obj).length){
+            for(var key in obj){
+                if(typeof(obj[key]) === 'object') {
+                    f(obj[key]);
+                }
+                if(key === 's'){
+                    obj[key] = true;
+                }
+            }
+        }
+    }   
 })();
 
-let serv = new Service(999, "serenity");
-serv.publicSetPrivateVal(222);
+setAllInnerPropsTotrue(nestedProps);
 
-
-//using symbols as private members
-
-const Person = (function(){
-    
-    const firstName = Symbol('firstName');
-    const lastName = Symbol('lastName');
-    
-    class Person {
-        constructor(p1, p2){
-            this[firstName] = p1;
-            this[lastName] = p2;
-        }
-        
-        getFullName(){
-            return `${this[firstName]} ${this[lastName]}`
-        }
+//21
+const asta1 = {
+    x: 1000,
+    sx(){
+        return this.x;
     }
-    
-    return Person;
-})();
+};
 
-let person = new Person("John", "Polloc");
-cl( person.getFullName() )
+const asta2 = {
+    x: 2000,
+    sx(){
+        return this.x;
+    }
+};
 
+const arr = [asta1, asta2];
 
+function asyncSx(array, cb){
+    array.forEach(function(currObj){
+        setTimeout(cb.bind(null, currObj), 0);
+    });
+}
 
+//ES6 version:
+//const asyncSx = (array, cb) => array.forEach(currObj => setTimeout(cb.bind(null, currObj), 0));
 
+asyncSx(arr, el => cl(el.sx()));
 
+//22
+function asyncForEach(array, cb){
+    array.forEach(function(el){
+        setTimeout(cb.bind(null, el), 0);
+    });
+}
 
-
-
-
-
-
+asyncForEach([12,34,55], el => cl(el));
 
 
 

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src="js/main.js"></script>
     <style>
         body{
             background: #000;
@@ -11,6 +10,30 @@
     </style>
 </head>
 <body>
-    
+    <button id="btn">Debounce</button>
+    <button id="btn1">Throttle</button>
+    <script src="js/main.js"></script>
+<!--    <script src="js/private.js"></script>-->
+    <script>
+  
+        const o  = {
+            msg: "Click from object",
+            show: function(){
+                console.log(`Message: ${this.msg}`);
+            }
+        };
+        
+        let debouncedFoo = debouncer(o.show.bind(o), 1000);
+        
+        let throttledFoo = throttled( o.show.bind(o), 1000 );
+        
+        document.getElementById("btn").addEventListener("click", function() {
+            debouncedFoo();
+        });   
+        
+        document.getElementById("btn1").addEventListener("click", function() {
+            throttledFoo();
+        });
+    </script>
 </body>
 </html>
