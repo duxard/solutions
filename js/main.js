@@ -33,6 +33,12 @@ let a1 = [1,2,3,4,5,6,7,8,9],
                 }
             }
         }
+    },
+    
+    objectFotDestruct = {
+        x: 100,
+        y: 200,
+        location: 'GB'
     };
 
 
@@ -316,6 +322,71 @@ function asyncForEach(array, cb){
 }
 
 asyncForEach([12,34,55], el => cl(el));
+
+//23
+let { x: axisx, y } = objectFotDestruct;
+
+//24
+const getNumOfdays = (year, month) => (new Date(year, month, 0)).getDate();
+
+//25
+const getNumOfDaysInCurrMonth = () => new Date((new Date()).getFullYear(), (new Date()).getMonth()+1, 0).getDate();
+
+//26
+let matchCounter1 = s1.toLocaleLowerCase().split('asta').length-1;
+let matchCounter2 = s1.match(/asta/gi).length;
+
+
+//27
+const sayHello = (name) => `Hello, ${name}`;
+
+const loggingDecorator = (func) => {
+    return function(){
+        console.log("Decorator: start working");
+        let result = func.apply(this, arguments);
+        console.log("Decorator: stop working");
+        console.log(result);
+    }
+}
+
+const wrapped = loggingDecorator(sayHello); 
+wrapped("Barak");
+
+//28
+//const sayHi = () => console.log("Hi, dawg!");
+//
+//const deferFuncCall = (func, timer) => {
+//    return function(){
+//        let now = Date.now();
+//        for(let i=0;;i++){
+//            if(Date.now() - now >= timer){
+//                func();
+//                break;
+//            }
+//        }
+//    }
+//}
+//
+//let deferred = deferFuncCall(sayHi, 2000);
+//deferred();
+
+//29
+const sayHi = () => console.log("Hi, dawg!");
+
+const asyncDeferFuncCall = (func, timer) => {
+    return function(){
+        setTimeout(() => {
+            func.apply(this, arguments);
+        }, timer);
+    }
+}
+
+let deferred = asyncDeferFuncCall(sayHi, 2000);
+deferred();
+
+
+
+
 
 
 

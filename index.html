@@ -12,8 +12,15 @@
 <body>
     <button id="btn">Debounce</button>
     <button id="btn1">Throttle</button>
+    <button id="btn2">Stop timeout</button>
+    <div></div>
+    <br>
+    <button id="subscribe">subscribe</button>
+    <button id="notify">notify</button>
+    <button id="unsubscribe">unsubscribe</button>
     <script src="js/main.js"></script>
 <!--    <script src="js/private.js"></script>-->
+    <script src="js/pubsub.js"></script>
     <script>
   
         const o  = {
@@ -33,6 +40,27 @@
         
         document.getElementById("btn1").addEventListener("click", function() {
             throttledFoo();
+        });
+        
+//      ---------------------  PUB/SUB  -------------------- 
+        
+        const doSmth1 = () => {console.log("doSmth1")}
+        const doSmth2 = () => {console.log("doSmth2")}
+        const doSmth3 = () => {console.log("doSmth3")}
+        const doSmth4 = () => {console.log("doSmth4")}
+        
+        document.getElementById("subscribe").addEventListener("click", function() {
+            events.subscribe('fire', doSmth1);
+            events.subscribe('fire', doSmth2);
+            events.subscribe('fire', doSmth3);
+        });
+        
+        document.getElementById("notify").addEventListener("click", function() {
+            events.notify('fire', {});
+        });
+        
+        document.getElementById("unsubscribe").addEventListener("click", function() {
+            events.unsubscribe('fire', doSmth2);
         });
     </script>
 </body>
