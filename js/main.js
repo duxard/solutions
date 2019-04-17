@@ -384,6 +384,32 @@ const asyncDeferFuncCall = (func, timer) => {
 let deferred = asyncDeferFuncCall(sayHi, 2000);
 deferred();
 
+//30
+function returnPositiveResponse(data, ms){
+    return new Promise(resolve => {
+        data.push(1);
+        setTimeout(() => {
+            resolve(data);
+        }, ms);
+    });
+}
+
+returnPositiveResponse([], 100)
+    .then(resultOfFirstRequest => returnPositiveResponse(resultOfFirstRequest, 100))
+    .then(resultOfSecondRequest => returnPositiveResponse(resultOfSecondRequest, 100))
+    .then(total => console.log(total))
+    .catch(err => console.error(err));
+
+//fetch('https://jsonplaceholder.typicode.com/users')
+//.then(response => response.json())
+//.then(json => cl(json))
+//.then(fetch('https://jsonplaceholder.typicode.com/posts/1').then(response => cl(response)))  
+//.catch(err => console.error(err));
+
+//31
+
+
+
 
 
 
