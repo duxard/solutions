@@ -1,4 +1,7 @@
 const cl = console.log;
+const pc = (msg) => {
+    console.log(`%c ${msg} `, `color: rgba(0, 183, 35, 0.85)`)
+}
 
 let a1 = [1,2,3,4,5,6,7,8,9],
     a2 = ["css", "html", "js"],
@@ -474,3 +477,22 @@ cl( '***********' );
 
 cl( Object.defineProperty(obj4, 'b', {value: 444}) )
 cl( Reflect.set(obj4, 'c', 555) )
+
+
+//35
+
+function* myGen(){
+    const arr = [];
+    let x = yield "pear";
+    let y = yield "plum";
+    let z = yield "peach";
+    
+    arr.push(x,y,z);
+    return {arr, status: "done"};
+}
+
+let gen = myGen();
+cl( gen.next() )
+cl( gen.next(11) )
+cl( gen.next(22) )
+cl( gen.next(33) )
