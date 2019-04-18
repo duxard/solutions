@@ -408,12 +408,69 @@ returnPositiveResponse([], 100)
 
 //31
 
+const fibb = (function(){
+    let memo = {};
+     function f(n){
+         let val;
+         if(n in memo) {
+             val = memo[n];
+         } else {
+             if(n===0 || n===1){
+                 val = n;
+             } else {
+                 val = f(n-1) + f(n-2);
+             }
+         }
+         return val;
+     }
+    return f;
+})();
 
+//cl( fibb(7) );
 
+//32
 
+function delay(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+//33
+let obj3 = {
+    x: 0,
+    y: 99,
+    hi(val){
+        console.log(`Received: ${val}`);
+    }
+}
 
+obj3.hi(3);
 
+let proxy = new Proxy(obj3, {
+    get(target, prop, receiver){
+        if(prop === 'x'){
+            return "I won't give you x prop";
+        } else {
+            return Reflect.get(...arguments);
+        }
+    },
+    deleteProperty(target, prop){
+        console.error("Unable to delete prop");
+        return true;
+    }
+});
 
+//console.log(Reflect)
 
+//34
 
+let obj4 = {
+    a: 333
+}
+
+cl( obj4.a )
+cl( Reflect.get(obj4, 'a') )
+
+cl( '***********' );
+
+cl( Object.defineProperty(obj4, 'b', {value: 444}) )
+cl( Reflect.set(obj4, 'c', 555) )
