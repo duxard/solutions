@@ -203,6 +203,8 @@ function f(){
     return [].join.call(arguments, ':')
 }
 
+const f = (...args) => [].join.call(args, ':');
+
 //16
 let myMap = new Map([
     ['one', 'first record'],
