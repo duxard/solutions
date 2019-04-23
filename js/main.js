@@ -158,8 +158,8 @@ function Coffee(){
 }
 
 let cup = new Coffee();
-cup.waterAmount(100);
-cl(cup.waterAmount())
+cup.waterAmount(100); //or cup.waterAmount = 100;
+cl(cup.waterAmount()) //or cl( cup.waterAmount )
 
 //14
 Array.prototype.push = (function(){
