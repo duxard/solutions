@@ -503,3 +503,25 @@ cl( gen.next() )
 cl( gen.next(11) )
 cl( gen.next(22) )
 cl( gen.next(33) )
+
+//36
+
+function towerBuilder(n) {
+  return Array.from({length: n}, function(v, k) {
+    const spaces = ' '.repeat(n - k - 1);
+    return spaces + '*'.repeat(k + k + 1) + spaces;
+  });
+}
+    
+const arrayOfUndefined = Array.from({ length: 5 });
+const numbers = Array.from({ length: 5 }, (e, i) => i);
+    
+function towerBuilder1(n) {
+    var bricks = '*', spaces = ' '.repeat(n - 1), tower = [];
+    for(var i = 0; i < n; i++) {
+        var space = spaces.substr(0, n - i - 1);
+        tower.push(space + bricks + space);
+        bricks+='**';
+    }
+    return tower;
+}
