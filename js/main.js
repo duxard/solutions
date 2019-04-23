@@ -198,6 +198,11 @@ for(let [key, val] of Object.entries(objToClone)){
 //    cl(key, val);
 }
 
+//15.2
+function f(){
+    return [].join.call(arguments, ':')
+}
+
 //16
 let myMap = new Map([
     ['one', 'first record'],
