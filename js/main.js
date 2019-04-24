@@ -205,6 +205,12 @@ function f(){
 
 const f = (...args) => [].join.call(args, ':');
 
+//15.3
+let pos1 = myArr.indexOf(110);
+let pos2 = myArr.findIndex(el => el===110);
+let pos3 = myArr.includes(NaN);
+let pos4 = myArr.find(el => el===50)
+
 //16
 let myMap = new Map([
     ['one', 'first record'],
