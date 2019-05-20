@@ -244,6 +244,12 @@ for(let key of mySet.values()){
 //third meth
 //mySet.forEach(el => console.log(el));
 
+//17.2
+let s = s1.replace(/^\s+|\s+$/g,'')
+
+//17.3
+let s = s1.replace(/\s+/g, '');
+
 //17
 for(let char of s2){
 //    cl(char);
