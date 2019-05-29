@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper {
+            height: 2000px;
+        }
+        #top {
+            width: 150%;
+            height: 100px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="top"></div>
+        <nav>
+            <ul>
+                <li>One </li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+<script>
+    (function(){
+        
+        const c = console.log;
+        
+        window.onload = function(){
+            const ul = document.querySelector('ul'),
+                  wrapper = document.getElementById('wrapper'),
+                  body = document.querySelector('body');
+            
+            window.addEventListener('scroll', e => {
+                c( window.scrollY );
+                c( wrapper.scrollTop );
+                c( body.scrollTop );
+            });
+            
+        }
+        
+    })();
+</script>
+</html>
