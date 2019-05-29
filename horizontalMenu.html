@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            display: table;
+            width: 100%;
+            border-bottom: 1px solid grey;
+        }
+        li {
+            list-style-type: none;
+            display: table-cell;
+            border-right: 1px solid grey;
+            text-align: center;
+            height: 40px;
+            vertical-align: middle;
+        }
+        li:last-child {
+            border-right: none;
+        }
+        li:hover {
+            cursor: pointer;  
+            background-color: darkgray;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <ul id="list">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+                <li>item 5</li>
+                <li>item 6</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
