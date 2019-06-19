@@ -196,6 +196,9 @@ Object.assign(newOb2, objToClone);
 /* third method */
 newOb1 = JSON.parse(JSON.stringify(objToClone));
 
+/* for array */
+let g = a1.join('').split('').map(el => +el);
+
 //15.1 - Iterate over object
 for(let [key, val] of Object.entries(objToClone)){
 //    cl(key, val);
