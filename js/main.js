@@ -447,6 +447,7 @@ const fibb = (function(){
                  val = n;
              } else {
                  val = f(n-1) + f(n-2);
+                 memo[n] = val; //!!!
              }
          }
          return val;
