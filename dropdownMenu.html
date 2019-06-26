@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html, body{
+            padding: 0;
+            margin: 0;
+        }
+        #wrapper{
+            width:100%;
+            margin: 0 auto;
+            height: 700px;
+        }
+        #list{
+            display: table;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid black;
+        }
+        #list > li{
+            display: table-cell;
+            border-right: 1px solid black;
+            text-align: center;
+            padding: 0;
+            cursor: pointer;
+        }
+        #list > li:last-child{
+            border-right: none;
+            
+        }
+        li{
+            height: 40px;
+            line-height: 40px;
+        }
+        li:hover{
+            background: #d6d6d6;
+        }
+        
+        /* dropdown styles */
+        .dropdown{
+            position: relative;
+        }
+        .dropdown ul{
+            display: block;
+            position: absolute;
+            list-style-type: none;
+            padding: 0;
+            top: 40px;
+            left: 0;
+            width: 100%; /* width of dropdown menu depends on parent's wight */
+            visibility: hidden;
+        }
+        .dropdown li{
+            border: solid #d6d6d6;
+            border-width: 0 1px 1px 1px;
+        }
+        
+        #list > li:hover ul{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul id="list">
+            <li class="dropdown">item1
+                <ul>
+                    <li>Subitem 1</li>
+                    <li>Subitem 2</li>
+                    <li>Subitem 3</li>
+                </ul>
+            </li>
+            <li class="dropdown">item2</li>
+            <li class="dropdown">item3
+                <ul>
+                    <li>Subitem 1</li>
+                    <li>Subitem 2</li>
+                    <li>Subitem 3</li>
+                    <li>Subitem 4</li>
+                    <li>Subitem 5</li>
+                    <li>Subitem 6</li>
+                </ul>
+            </li>
+            <li class="dropdown">item4</li>
+            <li class="dropdown">item5</li>
+        </ul> 
+    </div>
+</body>
+</html>
