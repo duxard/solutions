@@ -217,6 +217,10 @@ let pos2 = myArr.findIndex(el => el===110);
 let pos3 = myArr.includes(NaN);
 let pos4 = myArr.find(el => el===50)
 
+//15.4
+console.log( ~myArr.indexOf(110) );
+console.log( myArr.includes(110) );
+
 //16
 let myMap = new Map([
     ['one', 'first record'],
@@ -549,4 +553,8 @@ function fizzbuzz(){
     for(let i=0;i<100;i++){
         console.log( (i%3?'':'fizz') + (i%5?'':'buzz') || i )
       }
+}
+
+function isIsogram(str){
+    return (new Set(str.split(''))).size === str.length;
 }
