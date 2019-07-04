@@ -75,6 +75,7 @@ cl( /faf/ig.test(s1) );
 
 //6
 let matches = s1.match(/asta/gi).length;
+let matches1 = s1.split(/asta/g).length-1;
 
 //7
 function foo1(...args){
