@@ -5,3 +5,5 @@ https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5
 
 https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1
 https://medium.com/front-end-weekly/understand-the-factory-design-pattern-in-plain-javascript-20b348c832bd
+
+https://medium.com/better-programming/javascript-design-patterns-25f0faaaa15
