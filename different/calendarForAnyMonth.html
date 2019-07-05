@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, tr, th, td {
+            border: 1px solid black;
+        }
+        td {
+            text-align: center;
+        }
+        caption {
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper"></div>
+</body>
+<script>
+    window.onload = function(){
+        document.getElementById("wrapper").innerHTML = makeCalendar(2019, 0); 
+    }
+    
+    function makeCalendar(year, month){
+        
+        const months = ["January", "Februry", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+        let calendar = `<table><caption>${months[month]} ${year}</caption><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr><tr>`;
+        let firstDayOfTheMonth = new Date(year, month, 1).getDay();
+        let lastDayOfTheMonth = new Date(year, month+1, 0).getDate();
+        
+        if( firstDayOfTheMonth!==0 ){
+            for(let i=0; i<firstDayOfTheMonth; i++){
+                calendar += "<td></td>";
+            }
+        }
+        
+        for(let i=1; i<=lastDayOfTheMonth;){
+            for(let j=firstDayOfTheMonth; j<=6; j++){
+                if(j===0){
+                    calendar += "<tr>";
+                }
+                
+                calendar += (i > lastDayOfTheMonth) ? "<td></td>" : `<td>${i}</td>`;
+
+                ++i;
+                
+                if(j===6){
+                    calendar += "</tr>";
+                }
+                
+                firstDayOfTheMonth = 0;
+            }
+        }
+        calendar += "</table>";
+        return calendar;
+    }
+    
+</script>
+</html>
