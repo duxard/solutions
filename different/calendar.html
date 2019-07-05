@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, tr, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <table id="table">
+            <tr>
+                <th>Su</th>
+                <th>Mo</th>
+                <th>Tu</th>
+                <th>We</th>
+                <th>Th</th>
+                <th>Fr</th>
+                <th>Sa</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        const cl = console.log;
+        let table = document.getElementById('table');
+        
+        let htmlString = "<tr>";
+        let firstDayOfTheMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay();
+        let lastDayOfTheMonth = new Date(new Date().getFullYear(), new Date().getMonth()+1, 0).getDate();
+        
+        if( firstDayOfTheMonth!==0 ){
+            for(let i=0; i<firstDayOfTheMonth; i++){
+                htmlString += "<td></td>";
+            }
+        }
+        
+        for(let i=1; i<=lastDayOfTheMonth;){
+            for(let j=firstDayOfTheMonth; j<=6; j++){
+                
+                if(j===0){
+                    htmlString += "<tr>";
+                }
+                
+                htmlString += (i > lastDayOfTheMonth) ? "<td></td>" : `<td>${i}</td>`;
+
+                ++i;
+                
+                if(j===6){
+                    htmlString += "</tr>";
+                }
+                
+                firstDayOfTheMonth = 0;
+
+            }
+        }
+        
+       table.innerHTML += htmlString;   
+    }
+</script>
+</html>
