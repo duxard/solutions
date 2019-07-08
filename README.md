@@ -8,3 +8,5 @@ https://medium.com/front-end-weekly/understand-the-factory-design-pattern-in-pla
 
 https://medium.com/better-programming/javascript-design-patterns-25f0faaaa15
 https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know
+
+https://www.youtube.com/watch?v=f87wPQMgF4c&list=PL4cUxeGkcC9ij8CfkAY2RAGb-tmkNwQHG&index=39
