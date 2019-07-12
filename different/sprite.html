@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style-type: none;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom:5px;
+        }
+        li > div {
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin-right: 5px;
+            background: #fff url(../img/social-links-sprite.png) no-repeat;
+            background-size: 510%;
+        }
+        #s1 {
+            background-position: -32px -62px;
+        }
+        #s2 {
+            background-position: -32px -93px;
+        }
+        #s3 {
+            background-position: -32px -31px;
+        }
+        #s4 {
+            background-position: -123px -62px;
+        }
+        #s5 {
+            background-position: -32px -1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li><div id="s1"></div>item one</li>
+            <li><div id="s2"></div>item tow</li>
+            <li><div id="s3"></div>item three</li>
+            <li><div id="s4"></div>item four</li>
+            <li><div id="s5"></div>item five</li>
+        </ul>
+    </div>    
+</body>
+</html>
