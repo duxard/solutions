@@ -571,3 +571,20 @@ iterable1[Symbol.iterator] = function* () {
 console.log([...iterable1]);
 // expected output: Array [1, 2, 3]
 
+function ending(n){
+    let end = null,
+        n100 = n%100,
+        n10 = n%10;
+    
+    if(n100!==11 & n100%10===1){
+        end = '';
+    } else {
+        if(n10>1 & n10<5){
+            end = 'a';
+        } else {
+            ens = 'ov';
+        }
+    }
+    
+    return `${n} programmist${end}`;
+}
