@@ -588,3 +588,9 @@ function ending(n){
     
     return `${n} programmist${end}`;
 }
+
+let eachWordToUpperCase = (str) => {
+    return str.split(" ")
+        .map(el => el.charAt(0).toUpperCase()+el.substring(1))
+        .join(" ");
+}
