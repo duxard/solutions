@@ -197,6 +197,12 @@ Object.assign(newOb2, objToClone);
 /* third method */
 newOb1 = JSON.parse(JSON.stringify(objToClone));
 
+/*fourth method */
+let obj1 = {x: 10, y:20},
+    obj2 = {};
+
+obj2 = {...obj1};
+
 /* for array */
 let g = a1.join('').split('').map(el => +el);
 
