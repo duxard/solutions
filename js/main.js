@@ -600,3 +600,7 @@ let eachWordToUpperCase = (str) => {
         .map(el => el.charAt(0).toUpperCase()+el.substring(1))
         .join(" ");
 }
+
+// Compare two arrays
+
+let same = [...new Set(arr1.filter(el => arr2.includes(el)))];
