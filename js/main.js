@@ -542,6 +542,26 @@ function towerBuilder(n) {
     return spaces + '*'.repeat(k + k + 1) + spaces;
   });
 }
+
+//37
+
+function exec() {
+    console.log( [].join.call(arguments, ':') );
+}
+
+//First variant - ES5
+function decor(fn, delay) {
+    return function() {
+        let ctx = this;
+        let args = arguments;
+        setTimeout(function(){
+            fn.apply(ctx, args);
+        }, delay);
+    }
+}
+
+//Second variant - ES6
+const decor = (fn, delay) => (...args) => setTimeout(() => fn.apply(this, args), delay);
     
 const arrayOfUndefined = Array.from({ length: 5 });
 const numbers = Array.from({ length: 5 }, (e, i) => i);
@@ -602,5 +622,7 @@ let eachWordToUpperCase = (str) => {
 }
 
 // Compare two arrays
-
 let same = [...new Set(arr1.filter(el => arr2.includes(el)))];
+
+// isogram
+let isIso = word => word.toLowerCase() === [...new Set(word.toLowerCase().split(""))].join("");
