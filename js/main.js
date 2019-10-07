@@ -65,6 +65,11 @@ a2.forEach(el => el.length);
 
 let a2n = a2.map(el => el.length);
 
+//4.1
+a6.map((elem, indx, currArr) => {
+    currArr[indx] = elem*10;
+}); 
+
 let sum = a1.reduce((currVal, nextVal) => {
     return currVal+=nextVal;
 }, 0);
