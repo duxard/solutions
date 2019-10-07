@@ -47,9 +47,11 @@ let a1 = [1,2,3,4,5,6,7,8,9],
 
 
 //1 
-let na1 = a1.slice(3); //first three
-let na2 = a1.splice(0,3); //last 3
-let na3 = a1.splice(3);   //last 3 - ...
+let na1 = a1.slice(3); // copy all elements starting from the one with index #3
+let na2 = a1.splice(0,3); //delete first three elements
+let na3 = a1.splice(-3)           //delete last three elements
+let na4 = a1.splice(a1.length-3)  //delete last three elements
+let na5 = a1.splice(3);   //delete all elements starting from the one with index #3
 
 //2
 let na4 = a5.shift();
