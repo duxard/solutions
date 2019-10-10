@@ -633,3 +633,7 @@ let same = [...new Set(arr1.filter(el => arr2.includes(el)))];
 
 // isogram
 let isIso = word => word.toLowerCase() === [...new Set(word.toLowerCase().split(""))].join("");
+
+// flat an array
+let a1 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+let deepFlat = arr => arr.reduce((a,v) => a.concat(Array.isArray(v) ? deepFlat(v) : v), []);
