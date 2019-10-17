@@ -452,29 +452,6 @@ returnPositiveResponse([], 100)
 //.then(fetch('https://jsonplaceholder.typicode.com/posts/1').then(response => cl(response)))  
 //.catch(err => console.error(err));
 
-//31
-
-const fibb = (function(){
-    let memo = {};
-     function f(n){
-         let val;
-         if(n in memo) {
-             val = memo[n];
-         } else {
-             if(n===0 || n===1){
-                 val = n;
-             } else {
-                 val = f(n-1) + f(n-2);
-                 memo[n] = val; //!!!
-             }
-         }
-         return val;
-     }
-    return f;
-})();
-
-//cl( fibb(7) );
-
 //32
 
 function delay(ms){
