@@ -4,51 +4,42 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
+        * { margin:0; padding:0; }
+        html, body { height: 100%; }
+        
+        body {
+            background: #FFFAD5;
+            color: #BD4932;
+            display: table;
+            width: 100%;
         }
+
         #wrapper {
-            height: 2000px;
+            height: 100%;
         }
-        #top {
-            width: 150%;
-            height: 100px;
-            background: #000;
+
+        .footer {
+            display: table-row;
+            height: 1px;
+            background: #105B63;
+            color: #FFFAD5;
         }
     </style>
 </head>
 <body>
     <div id="wrapper">
-        <div id="top"></div>
-        <nav>
-            <ul>
-                <li>One </li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-            </ul>
-        </nav>
+        <p>This is a main body</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nesciunt tempore quasi dicta sapiente facilis, nam obcaecati adipisci tenetur quia illum excepturi inventore nostrum fugiat dolorem laboriosam quam provident, fugit explicabo veniam a at, iste sed earum! Esse ab quisquam maiores, deserunt magni dignissimos consectetur ipsam unde tenetur, quos debitis veritatis corporis quaerat nobis architecto veniam laudantium ullam laborum dicta. Dolor suscipit cum quasi reiciendis similique velit dolorum, sed ipsum tempora vel cumque, consectetur dolores provident asperiores placeat incidunt eius corporis? Modi molestiae eaque, autem rerum ducimus eveniet assumenda doloribus consequuntur recusandae odio impedit optio in, aliquam beatae vel, eos dolor dolorem non tempore ad nam magnam consequatur atque maxime. Impedit, error incidunt placeat aspernatur assumenda sit expedita repellat quidem pariatur omnis, tenetur saepe commodi deleniti nihil ex minima blanditiis distinctio ullam aperiam, porro reiciendis vel eum. In itaque ratione, voluptatum. Repudiandae eveniet nostrum libero molestias quod magni, nam ex quis tempora! Quaerat modi suscipit totam dicta magni tempora ex ipsam! Ut, voluptatem saepe. Officia ducimus, fugiat ad commodi cumque modi repellat non quisquam. Rem temporibus eos, aperiam sapiente. Incidunt in quibusdam repellendus perspiciatis ad, quod labore esse, tempore dolorem vitae fugit sequi omnis voluptatum quidem, dolorum voluptates culpa. Fuga, libero ut natus veritatis nam vero, porro beatae inventore quis, voluptatibus dolore architecto asperiores. Mollitia dolor illo et cum, amet est unde provident ipsum quas inventore, incidunt vitae culpa necessitatibus aliquam rerum officia dolores deserunt soluta explicabo ipsa natus laborum aperiam, sed reiciendis. Tenetur dolorem ea cupiditate recusandae error voluptatem veritatis, non suscipit doloribus quasi temporibus libero impedit quos perferendis. Vero in minima similique illum dicta possimus mollitia harum? Dicta reprehenderit repellat, inventore voluptatem, veniam deleniti impedit, enim doloremque velit error nihil quaerat minima blanditiis repudiandae, porro commodi possimus iure sunt fugiat alias excepturi! Placeat autem eum eligendi recusandae voluptas, odit maxime repellat quis officia in officiis, distinctio qui animi perferendis doloribus unde excepturi quos vel, impedit adipisci! Obcaecati quae, fuga earum nemo eaque odit, fugit, laboriosam suscipit non reprehenderit veritatis fugiat explicabo dolorem blanditiis? Iusto doloremque maiores praesentium quasi. Nisi minus culpa debitis numquam dicta, impedit provident quo aut repellat sed accusantium explicabo iure libero ipsam fugit dolore beatae, ratione ea? Doloribus optio eum numquam laboriosam odio perferendis ex? Sapiente, nulla aliquid molestias eligendi, ipsum sunt vitae veniam. A vel quod vero fuga, sunt aut aperiam debitis culpa. Dolores, assumenda, repellat! Dolor molestias harum, quibusdam esse nesciunt reiciendis incidunt.</p>
     </div>
+    
+    <footer class="footer">
+        <div>
+            <p>This is a footer</p>
+            <p>This is a footer</p>
+            <p>This is a footer</p>
+            <p>This is a footer</p>
+        </div>
+    </footer>
 </body>
-<script>
-    (function(){
-        
-        const c = console.log;
-        
-        window.onload = function(){
-            const ul = document.querySelector('ul'),
-                  wrapper = document.getElementById('wrapper'),
-                  body = document.querySelector('body');
-            
-            window.addEventListener('scroll', e => {
-                c( window.scrollY );
-                c( wrapper.scrollTop );
-                c( body.scrollTop );
-            });
-            
-        }
-        
-    })();
-</script>
 </html>
+
