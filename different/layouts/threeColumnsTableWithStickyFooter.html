@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        body {
+            display: table;
+        }
+        #a {
+            background-color: #868383;
+        }
+        #b {
+            background-color: #4d4040;
+        }
+        #c {
+            background-color: #7c7474;
+        }
+        #wrapper {
+            /* Uncomment these two props to make wrapper 100% height of browser window */
+/*            display: table;*/
+/*            height: 100%;    */
+            width: 100%;
+        }
+        .box {
+            display: table-cell;
+            width: 33%;
+        }
+        
+        footer {
+            display: table-row;
+            height: 1px;
+            background: #105B63;
+            color: #FFFAD5;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .box {
+                display: block;
+                width: 100%;
+            }
+            .box p {
+                margin: 0;
+            }
+        } 
+        
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="a" class="box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.</p>
+        </div>
+        <div id="b" class="box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.</p>
+        </div>
+        <div id="c" class="box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div>
+            <p>This is a footer</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem deleniti nobis, laudantium natus quia rerum debitis in recusandae maxime.</p>
+        </div>
+    </footer>
+</body>
+</html>
