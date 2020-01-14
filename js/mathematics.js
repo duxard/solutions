@@ -136,3 +136,18 @@ const quickSort = (
   recursiveSort(0, unsortedArray.length - 1);
   return sortedArray;
 };
+
+//is number Prime?
+let isPrime = num => {
+    if ( num===1 ) return false;
+    if ( num===2 ) {
+        return true;
+    } else {
+        for(let x=2; x<num; x++) {
+            if ( num%x===0 ) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
