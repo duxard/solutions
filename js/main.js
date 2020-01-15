@@ -18,13 +18,13 @@ let a1 = [1,2,3,4,5,6,7,8,9],
     s2 = "abcdefg",
     objectArr = [{id:101,x:"one"}, {id:102,x:"two"}, {id:103,x:"three"}, {id:104,x:"four"}, {id:105,x:"five"}],
     objToClone = {bool: true, x: 1000, band: "Limp Bizkit"},
-    
+
     nestedProps = {
         s: false,
         y: 100,
         x: {
             x:{
-                s: false,    
+                s: false,
                 x: {
                     s: false,
                     y: 1000,
@@ -37,7 +37,7 @@ let a1 = [1,2,3,4,5,6,7,8,9],
             }
         }
     },
-    
+
     objectFotDestruct = {
         x: 100,
         y: 200,
@@ -46,7 +46,7 @@ let a1 = [1,2,3,4,5,6,7,8,9],
 
 
 
-//1 
+//1
 let na1 = a1.slice(3); // copy all elements starting from the one with index #3
 let na2 = a1.splice(0,3); //delete first three elements
 let na3 = a1.splice(-3)           //delete last three elements
@@ -68,7 +68,7 @@ let a2n = a2.map(el => el.length);
 //4.1
 a6.map((elem, indx, currArr) => {
     currArr[indx] = elem*10;
-}); 
+});
 
 let sum = a1.reduce((currVal, nextVal) => {
     return currVal+=nextVal;
@@ -102,16 +102,16 @@ function sumA(a){
 
 function sumB(a){
     let res = a;
-    
+
     function f(b){
         res += b;
         return f;
     }
-    
+
     f.toString = function(){
         return res;
     }
-    
+
     return f;
 }
 
@@ -141,7 +141,7 @@ Object.defineProperty(o1, 'propX', {
 })
 
 
-let o2 = { 
+let o2 = {
     x: null,
     get propX(){
         return this.x;
@@ -155,7 +155,7 @@ let o2 = {
 
 function Coffee(){
     let waterAmount = 0;
-    
+
     this.waterAmount = function(amount){
         if(!arguments.length){
             return waterAmount;
@@ -293,7 +293,7 @@ function debouncer(f, time){
     return function(...args){
         if(timeout){
             clearTimeout(timeout);
-            
+
         }
         timeout = setTimeout(() => {f(...args)}, time);
     }
@@ -327,7 +327,7 @@ const setAllInnerPropsTotrue = (function(){
                 }
             }
         }
-    }   
+    }
 })();
 
 setAllInnerPropsTotrue(nestedProps);
@@ -395,7 +395,7 @@ const loggingDecorator = (func) => {
     }
 }
 
-const wrapped = loggingDecorator(sayHello); 
+const wrapped = loggingDecorator(sayHello);
 wrapped("Barak");
 
 //28
@@ -449,7 +449,7 @@ returnPositiveResponse([], 100)
 //fetch('https://jsonplaceholder.typicode.com/users')
 //.then(response => response.json())
 //.then(json => cl(json))
-//.then(fetch('https://jsonplaceholder.typicode.com/posts/1').then(response => cl(response)))  
+//.then(fetch('https://jsonplaceholder.typicode.com/posts/1').then(response => cl(response)))
 //.catch(err => console.error(err));
 
 //32
@@ -507,7 +507,7 @@ function* myGen(){
     let x = yield "pear";
     let y = yield "plum";
     let z = yield "peach";
-    
+
     arr.push(x,y,z);
     return {arr, status: "done"};
 }
@@ -546,10 +546,10 @@ function decor(fn, delay) {
 
 //Second variant - ES6
 const decor = (fn, delay) => (...args) => setTimeout(() => fn.apply(this, args), delay);
-    
+
 const arrayOfUndefined = Array.from({ length: 5 });
 const numbers = Array.from({ length: 5 }, (e, i) => i);
-    
+
 function towerBuilder1(n) {
     var bricks = '*', spaces = ' '.repeat(n - 1), tower = [];
     for(var i = 0; i < n; i++) {
@@ -585,7 +585,7 @@ function ending(n){
     let end = null,
         n100 = n%100,
         n10 = n%10;
-    
+
     if(n100!==11 & n100%10===1){
         end = '';
     } else {
@@ -595,7 +595,7 @@ function ending(n){
             ens = 'ov';
         }
     }
-    
+
     return `${n} programmist${end}`;
 }
 
@@ -623,3 +623,28 @@ function decor(fn, ms){
         }
     });
 }
+
+// Write a JavaScript program to find the most frequent item of an array
+function mostFrequent(arr) {
+    let store = {},
+        max = 0,
+        symb = '';
+        
+    for(let i=0; i<arr.length; i++) {
+        if(typeof store[arr[i]] === 'undefined') {
+            store[arr[i]] = 1;
+        } else {
+            store[arr[i]] += 1;
+        }
+    }
+
+    Object.keys(store).forEach(key => {
+        if(store[key] > max) {
+            max = store[key];
+            symb = key;
+        }
+    });
+
+    return `${symb} : ${max}`;
+}
+console.log(mostFrequent(['d', 3, 'a', 'd', 'd', 'c', 'c', 3, 1, 'a', 'd']));
