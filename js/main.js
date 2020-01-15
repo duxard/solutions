@@ -629,7 +629,7 @@ function mostFrequent(arr) {
     let store = {},
         max = 0,
         symb = '';
-        
+
     for(let i=0; i<arr.length; i++) {
         if(typeof store[arr[i]] === 'undefined') {
             store[arr[i]] = 1;
@@ -648,3 +648,10 @@ function mostFrequent(arr) {
     return `${symb} : ${max}`;
 }
 console.log(mostFrequent(['d', 3, 'a', 'd', 'd', 'c', 'c', 3, 1, 'a', 'd']));
+
+// Generate random hex color
+function generateRandoxHexColor() {
+    let pad = sy => String(sy).length === 1 ? `0${sy}` : sy;
+    let randHex = () => pad( Math.floor(Math.random()*256).toString(16) );
+    return `#${randHex()}${randHex()}${randHex()}`;
+}
