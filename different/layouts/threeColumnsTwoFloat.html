@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrapper {
+            width: 100%;
+            outline: 1px solid black;
+/*            overflow: hidden;*/
+            display: flow-root;
+        }
+        #left {
+            float: left;
+        }
+        #right {
+            float: right;
+        }
+        #center {
+            outline: 1px solid blue;
+            margin: 0 152px;
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left" class="box"></div>
+        <div id="right" class="box"></div>
+        <div id="center">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime soluta dolorum repudiandae, corporis provident sapiente rerum vitae quo unde voluptatem?</p>
+        </div>
+    </div>
+</body>
+</html>
