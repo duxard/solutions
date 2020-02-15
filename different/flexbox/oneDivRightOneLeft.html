@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        .left {
+            padding: 1em;
+            background-color: #337ab7;
+        }
+
+        .right {
+            padding: 1em;
+            background-color: #5cb85c;
+        }
+
+        .parent {
+            display: flex;
+            overflow: hidden;
+            margin: 1em 0;
+            color: #fff;
+            border: 1px solid #333;
+            align-items: center;
+        }
+
+        #parent1 .left {
+            margin-right: auto;
+        }
+
+        #parent2 .left {
+
+                flex-grow: 1;
+
+        }
+
+        #parent3 .right {
+
+            margin-left: auto;
+
+        }
+
+        #parent4 {
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id='parent1' class="parent">
+      <div class="left">Left</div>
+      <div class="right">Right</div>
+    </div>
+    <div id='parent2' class="parent">
+      <div class="left">Left</div>
+      <div class="right">Right</div>
+    </div>
+    <div id='parent3' class="parent">
+      <div class="left">Left</div>
+      <div class="right">Right</div>
+    </div>
+    <div id='parent4' class="parent">
+      <div class="left">Left</div>
+      <div class="right">Right</div>
+    </div>
+
+</body>
+</html>
