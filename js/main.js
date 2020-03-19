@@ -655,3 +655,9 @@ function generateRandoxHexColor() {
     let randHex = () => pad( Math.floor(Math.random()*256).toString(16) );
     return `#${randHex()}${randHex()}${randHex()}`;
 }
+
+// get values which exist in both arrays
+const a1 = [1,2,3,4];
+const a2 = [1,3,7,8];
+
+const a3 = a1.filter(el => a2.includes(el)); // a3 -> [1,3]
