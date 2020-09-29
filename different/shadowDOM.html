@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <app-asta name='Joe Doe'></app-asta>
+  <script>
+    window.onload = function() {
+      const template = document.createElement('template');
+      template.innerHTML = `
+                  <style>
+                      h3 {
+                          color: red;
+                      }
+                  </style>
+                  <div>
+                      <h3></h3>
+                  </div>
+                  <p id="info"></p>
+              `;
+
+      class AppAsta extends HTMLElement {
+        constructor() {
+          super();
+
+          this.attachShadow({ mode: 'open' });
+          this.shadowRoot.appendChild(template.content.cloneNode(true));
+          this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
+
+          const info = this.shadowRoot.getElementById('info');
+          info.innerText = 'hi there';
+          info.style.backgroundColor = 'yellow';
+
+        }
+      }
+      window.customElements.define('app-asta', AppAsta);
+    }
+  </script>
+</body>
+</html>
