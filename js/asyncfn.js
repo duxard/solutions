@@ -2,9 +2,8 @@ function showArgs(){
     console.log( Array.prototype.join.call(arguments, ":") );
 }
 
-// async decorator
 // 1 variant
-function makeAsync(fn){
+function makeAsync1(fn){
     return function(){
         const args = arguments,
               ctx = this;
@@ -15,12 +14,12 @@ function makeAsync(fn){
 } 
 
 // 2 variant
-const makeAsync = (fn) => (...args) => {
+const makeAsync2 = (fn) => (...args) => {
     setTimeout(() => {
         fn.apply(this, args);
     }, 0);
-}
+};
 
 // usage
-let wrapped = makeAsync(showArgs);
+let wrapped = makeAsync1(showArgs);
 wrapped(1,2,3,4); // 1:2:3:4

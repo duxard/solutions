@@ -25,6 +25,5 @@ Object.assign(Shepherd.prototype, additionalAPI);
 
 /* usage */
 let d = new Shepherd('Lessy');
-d.bark()
+d.bark();
 d.sayName();
-        

@@ -18,11 +18,11 @@ const Service = (function(){
     
     Service.prototype.publicGetVal = function(){
         return privateGetVal();
-    }
+    };
     
     Service.prototype.publicSetVal = function(newVal){
         privateSetVal(newVal);
-    }
+    };
     
     return Service;
 })();
@@ -109,8 +109,8 @@ const Entity = (function(){
 })();
 
 let e = new Entity("Barak", "Obama");
-console.log( e.firstName )
-console.log( e.lastName )
+console.log( e.firstName );
+console.log( e.lastName );
 
 
 
