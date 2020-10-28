@@ -1,7 +1,7 @@
 const cl = console.log;
 const pc = (msg) => {
     console.log(`%c ${msg} `, `color: rgba(0, 183, 35, 0.85)`)
-}
+};
 
 let a1 = [1,2,3,4,5,6,7,8,9],
     a2 = ["css", "html", "js"],
@@ -70,6 +70,10 @@ a6.map((elem, indx, currArr) => {
     currArr[indx] = elem*10;
 });
 
+//4.2
+Array.from({length: 10}, () => true);
+Array(10).fill(true);
+
 let sum = a1.reduce((currVal, nextVal) => {
     return currVal+=nextVal;
 }, 0);
@@ -110,7 +114,7 @@ function sumB(a){
 
     f.toString = function(){
         return res;
-    }
+    };
 
     return f;
 }
@@ -129,6 +133,20 @@ for(let i=0; i<=3; i++){
     }
 }
 
+// 9.1 using generator:
+function* randomizer(a, b) {
+    let min = a;
+    let max = b;
+    let i = 0;
+
+    while(i<10) {
+        ++i;
+        yield Math.floor(min + Math.random()*(max + min - 1));
+    }
+}
+
+cl( [...randomizer(1,100)] );
+
 //10
 let o1 = { x: null };
 Object.defineProperty(o1, 'propX', {
@@ -138,7 +156,7 @@ Object.defineProperty(o1, 'propX', {
     get: function(){
         return this.x;
     }
-})
+});
 
 
 let o2 = {
@@ -182,7 +200,7 @@ let arr2 = [];
 arr2.join = function(){
     //...
     return Array.prototype.join.apply(this, arguments);
-}
+};
 
 //14.1
 let findIndexById = objectArr.findIndex(el => el.id === 103);
