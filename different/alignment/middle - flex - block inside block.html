@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .parent1 {
+      display: flex;
+      align-items: start;
+    }
+    .parent2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .parent3 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .child {
+      flex-basis: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent1" style="border: 1px solid #333; height: 150px;">
+    <div class="child" style="height: 50px; background: black;"></div>
+  </div>
+  <div class="parent2" style="border: 1px solid #333; height: 150px; margin: 10px 0;">
+    <div class="child" style="height: 50px; background: red;"></div>
+  </div>
+  <div class="parent3" style="border: 1px solid #333; height: 150px;">
+    <div class="child" style="height: 50px; background: green;"></div>
+  </div>
+</body>
+</html>
