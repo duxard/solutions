@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #wrapper { width: 800px; height:700px; border: 1px solid black; }
+    #ball { width: 80px; height:80px; background: #0a4e02; }
+    #ball:hover { cursor: move }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="ball" style=""></div>
+  </div>
+  <script>
+    window.onload = function() {
+      const ball = document.getElementById('ball');
+
+      ball.onmousedown = function(event) {
+        /**
+         * When a visitor presses the button (mousedown) – remember
+         * the distance from the pointer to the left-upper corner of the ball in variables shiftX/shiftY.
+         * We’ll keep that distance while dragging.
+         * @type {number}
+         */
+        let shiftX = event.clientX - ball.getBoundingClientRect().left;
+        let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+        ball.style.position = 'absolute';
+        ball.style.zIndex = 1000;
+
+        // move it out of any current parents directly into body
+        // to make it positioned relative to the body
+        document.body.append(ball);
+
+        moveAt(event.pageX, event.pageY);
+
+        // moves the ball at (pageX, pageY) coordinates
+        // taking initial shifts into account
+        function moveAt(pageX, pageY) {
+          ball.style.left = pageX - shiftX + 'px';
+          ball.style.top = pageY - shiftY + 'px';
+        }
+
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+        }
+
+        // move the ball on mousemove
+        document.addEventListener('mousemove', onMouseMove);
+
+        // drop the ball, remove unneeded handlers
+        ball.onmouseup = function() {
+          document.removeEventListener('mousemove', onMouseMove);
+          ball.onmouseup = null;
+        };
+
+      };
+
+      ball.ondragstart = function() {
+        return false;
+      };
+    }
+  </script>
+</body>
+</html>
