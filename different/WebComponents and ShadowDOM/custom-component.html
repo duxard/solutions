@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class AstaTag extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      render() {
+        this.innerHTML = `
+          <h3>Tittle</h3>
+          <p>Asta tag</p>
+        `;
+        const attr = this.getAttribute('city');
+        // const attr = this.attributes;
+        console.log(attr);
+      }
+
+      connectedCallback() {
+        this.render();
+        console.log('inserted');
+      }
+
+      disconnectedCallback() {
+        console.log('removed');
+      }
+    }
+
+    customElements.define("asta-tag", AstaTag);
+
+  </script>
+  
+  <asta-tag city="ny"></asta-tag>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span, p {
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    customElements.define('user-card', class extends HTMLElement {
+      connectedCallback() {
+        this.attachShadow({mode: 'open'});
+        this.shadowRoot.innerHTML = `
+          <style>
+            :host {
+              font-weight: bold;
+            }
+            slot[name="username"] {
+              text-decoration: underline;
+            }
+          </style>
+
+          <span>Red color from styles does not apply</span><hr/>
+
+          <div>Name:
+            <slot name="username"></slot>
+          </div>
+          <div>Birthday:
+            <slot name="birthday"></slot>
+          </div>
+
+          <fieldset>
+            <legend>Other information</legend>
+            <slot></slot>
+          </fieldset>
+        `;
+      }
+    });
+    </script>
+    
+    <user-card>
+      <span slot="username">John Smith</span>
+      <span slot="birthday">01.01.2001</span>
+      <p>dummy info 1</p>
+      <p>dummy info 2</p>
+      <p>dummy info 3</p>
+    </user-card>
+
+</body>
+</html>
