@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .left {
+      padding: 1em;
+      background-color: #337ab7;
+    }
+
+    .right {
+      padding: 1em;
+      margin-left: 5px;
+      background-color: #5cb85c;
+      display: flex;
+      align-items: center;
+    }
+
+    .parent {
+      display: inline-flex;
+      overflow: hidden;
+      color: #fff;
+      border: 1px solid #333;
+      align-items: stretch;
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+   <div class="parent">
+    <div class="left">
+		<p>lorem ipsum</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<div style="width: 100px; height: 150px; background: red">1234</div>
+	</div>
+    <div class="right"><button>right</button></div>
+  </div>
+
+</body>
+</html>
