@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+  .table1 { grid-template-columns: min-content max-content auto minmax(30px, 160px); }
+  .table2 { grid-template-columns: auto auto auto minmax(30px, 160px); }
+  .table3 { grid-template-columns: auto auto auto auto }
+  .table4 { grid-template-columns: 1fr auto auto auto }
+  .table5 { grid-template-columns: 1fr 1fr 1fr 1fr }
+
+  .grid-container {
+    display: grid;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+  }
+  
+</style>
+</head>
+<body>
+
+<div class="grid-container table1">
+  <div class="item1">111111 222</div>
+  <div class="item2">111111 222</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+</div>
+<br>
+<div class="grid-container table2">
+  <div class="item5">1</div>
+  <div class="item6">1</div>
+  <div class="item7">1</div>
+  <div class="item8">1</div>
+</div>
+<br>
+<div class="grid-container table3">
+  <div class="item5">1</div>
+  <div class="item6">1</div>
+  <div class="item7">1</div>
+  <div class="item8">1</div>
+</div>
+<br>
+<div class="grid-container table4">
+  <div class="item5">1</div>
+  <div class="item6">1</div>
+  <div class="item7">1</div>
+  <div class="item8">1</div>
+</div>
+<br>
+<div class="grid-container table5">
+  <div class="item5">1</div>
+  <div class="item6">1</div>
+  <div class="item7">1</div>
+  <div class="item8">1</div>
+</div>
+
+</body>
+</html>
