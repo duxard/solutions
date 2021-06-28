@@ -679,3 +679,6 @@ const a1 = [1,2,3,4];
 const a2 = [1,3,7,8];
 
 const a3 = a1.filter(el => a2.includes(el)); // a3 -> [1,3]
+
+// get number's length (without casting it to string)
+const len = num => (num===0) ? 0 : Math.floor(Math.log10(num));
