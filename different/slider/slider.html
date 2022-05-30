@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+      width: 15rem;
+    }
+
+    /* Удаляем фокусировку по умолчанию */
+    input[type="range"]:focus {
+      outline: none;
+    }
+
+    /***** Стили для Chrome, Safari, Opera и Edge Chromium *****/
+    /* дорожка слайдера */
+    input[type="range"]::-webkit-slider-runnable-track {
+      background-color: #053a5f;
+      border-radius: 0.5rem;
+      height: 0.5rem;
+    }
+
+    /* ползунок слайдера */
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Переопределяем вид по умолчанию */
+      appearance: none;
+      margin-top: -12px; /* Установим ползунок по центру дорожки */
+
+      /* пользовательские стили */
+      background-color: #5cd5eb;
+      height: 2rem;
+      width: 1rem;
+    }
+
+    input[type="range"]:focus::-webkit-slider-thumb {
+      border: 1px solid #053a5f;
+      outline: 3px solid #053a5f;
+      outline-offset: 0.125rem;
+    }
+
+    /******** Стили для Firefox ********/
+    /* дорожка слайдера */
+    input[type="range"]::-moz-range-track {
+      background-color: #053a5f;
+      border-radius: 0.5rem;
+      height: 0.5rem;
+    }
+
+    /* ползунок слайдера */
+    input[type="range"]::-moz-range-thumb {
+      border: none; /* Удаляем лишнюю рамку, которую добавляет FF */
+      border-radius: 0; /* Удаляем border-radius по умолчанию от FF */
+
+      /* пользовательские стили */
+      background-color: #5cd5eb;
+      height: 2rem;
+      width: 1rem;
+    }
+
+    input[type="range"]:focus::-moz-range-thumb {
+      border: 1px solid #053a5f;
+      outline: 3px solid #053a5f;
+      outline-offset: 0.125rem;
+    }
+
+  </style>
+</head>
+<body>
+  <br>
+  <input type="range">
+</body>
+</html>
