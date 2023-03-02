@@ -86,7 +86,7 @@ cl( /faf/ig.test(s1) );
 
 //6
 let matches = s1.match(/asta/gi).length;
-let matches1 = s1.split(/asta/g).length-1;
+let matches1 = s1.split(/asta/).length-1;
 
 //7
 function foo1(...args){
@@ -542,7 +542,7 @@ function towerBuilder(n) {
   return Array.from({length: n}, function(v, k) {
     const spaces = ' '.repeat(n - k - 1);
     return spaces + '*'.repeat(k + k + 1) + spaces;
-  });
+  }).join('\r\n');
 }
 
 //37
