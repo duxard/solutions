@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    
+  .table1 { grid-template-columns: minmax(50px, 200px) auto auto auto; }
+/*
+  .table2 { grid-template-columns: auto auto auto minmax(30px, 160px); }
+  .table3 { grid-template-columns: auto auto auto auto }
+  .table4 { grid-template-columns: 1fr auto auto auto }
+  .table5 { grid-template-columns: 1fr 1fr 1fr 1fr }
+*/
+
+  .grid-container {
+    display: grid;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+  }
+    
+    .item1 img {
+      max-width: 200px;
+      max-height: 200px;
+    }
+    
+    .item2 {
+      align-self: center;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="grid-container table1">
+    <div class="item1">
+      <img src="img2.jpg" alt="Girl in a jacket">
+    </div>
+    <div class="item2">title</div>
+    <div class="item3">apps list</div>  
+    <div class="item4">delete</div>
+  </div>
+</body>
+</html>
