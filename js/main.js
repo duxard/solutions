@@ -623,6 +623,9 @@ let eachWordToUpperCase = (str) => {
         .join(" ");
 }
 
+// Check if 2 simple arrays equal
+const compareArrays = (a, b) => a.every(el => b.includes(el)) && (a.length === b.length);
+
 // Compare two arrays
 let same = [...new Set(arr1.filter(el => arr2.includes(el)))];
 
