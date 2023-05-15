@@ -119,6 +119,25 @@ function sumB(a){
     return f;
 }
 
+// another variant by wise.js
+
+function sum2(a) {
+    let res = a;
+
+    return function acc(b) {
+        if(typeof b === 'number') {
+            res += b;
+            return acc;
+        }
+        return res;
+    }
+}
+
+/*
+usage:
+console.log( sum(1)(2)(3)() )
+ */
+
 //9
 
 function rand(min, max){
