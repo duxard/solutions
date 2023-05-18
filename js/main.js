@@ -704,3 +704,54 @@ const a3 = a1.filter(el => a2.includes(el)); // a3 -> [1,3]
 
 // get number's length (without casting it to string)
 const len = num => (num===0) ? 0 : Math.floor(Math.log10(num))+1;
+
+//------------------------------------------------------------------
+// Curring by monstolessons
+
+function curry(fn) {
+    const arity = fn.length;
+
+    return function f1(...args) {
+        if(args.length >= arity) {
+            return fn(...args)
+        } else {
+            return function f2(...moreArgs) {
+                const newArgs = args.concat(moreArgs);
+                return f1(...newArgs);
+            }
+        }
+    }
+}
+
+const curried = curry((a, b, c) => a+b+c);
+console.log( curried(1,2,3) );
+console.log( curried(1)(2)(3) );
+console.log( curried(1)(2,3) );
+
+
+// custom Promise.all() by wise.js
+function promiseAll(promises) {
+    const len = promises.length;
+    let res = [];
+
+    return new Promise((resolve, reject) => {
+        for(let i=0; i<len; i++) {
+            promises[i].then(resolvedData => {
+                res.push(resolvedData);
+
+                if(res.length === len) {
+                    resolve(res);
+                }
+            });
+        }
+    });
+}
+
+
+promiseAll([
+    new Promise(res => res(1)),
+    new Promise(res => res(2)),
+    new Promise(res => res(3))
+]).then(console.log);
+
+

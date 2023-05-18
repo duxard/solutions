@@ -112,31 +112,3 @@ let e = new Entity("Barak", "Obama");
 console.log( e.firstName );
 console.log( e.lastName );
 
-// custom Promise.all()
-
-function promiseAll(promises) {
-    const len = promises.length;
-    let res = [];
-
-    return new Promise((resolve, reject) => {
-        for(let i=0; i<len; i++) {
-            promises[i].then(resolvedData => {
-                res.push(resolvedData);
-
-                if(res.length === len) {
-                    resolve(res);
-                }
-            });
-        }
-    });
-}
-
-
-promiseAll([
-  new Promise(res => res(1)),
-  new Promise(res => res(2)),
-  new Promise(res => res(3))
-]).then(console.log);
-
-
-
