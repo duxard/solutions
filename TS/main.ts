@@ -55,10 +55,20 @@ type ObjValues = (typeof names)[keyof typeof names];
 
 
 const obj = { foo: "hello", bar: "world", baz: "bye" };
-foo<T extends object, U extends keyof T>(obj: T): U[] {
+function foo1<T extends object, U extends keyof T>(obj: T): U[] {
   return Object.keys(obj).map(val => val) as U[];
 }
 
+
+// -----------------------------------------------------------------
+function foo2<T extends number | boolean | string>(param: T): T extends string ? number : boolean;
+
+function foo2(param: unknown): number | boolean {
+  if (typeof param === 'string') {
+    return param.length;
+  }
+  return true;
+}
 
 // -----------------------------------------------------------------
 enum cols {
