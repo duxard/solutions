@@ -101,3 +101,20 @@ type t2 = {
 }
 
 // let b: t2 = {a: 'sdf'};
+
+ // -----------------------------------------------------------------
+  type FirstIfString<T> = T extends [infer S, ...unknown[]]
+  ? S extends string
+    ? S
+    : never
+  : never;
+  
+  // OR:
+  
+  type FirstIfString<T> =
+    T extends [infer S extends string, ...unknown[]]
+        ? S
+        : never;
+  
+  type A = FirstIfString<[string, number, boolean]> // string
+  type B = FirstIfString<[boolean, number, string]> // never
