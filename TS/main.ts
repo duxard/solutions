@@ -61,6 +61,35 @@ function foo1<T extends object, U extends keyof T>(obj: T): U[] {
 
 
 // -----------------------------------------------------------------
+
+//Create a Union type from an Array or Object in TypeScript
+
+const sizes = ['small', 'medium', 'large'] as const;
+// type SizesUnion = "small" | "medium" | "large"
+type SizesUnion = typeof sizes[number];
+// type T = readonly ["small", "medium", "large"]
+type T = typeof sizes;
+
+
+const employee = {
+  id: 1,
+  name: 'Bobby Hadz',
+  salary: 100,
+} as const;
+
+// type Keys = "id" | "name" | "salary"
+type Keys = keyof typeof employee;
+// type Values = 1 | "Bobby Hadz" | 100
+type Values = (typeof employee)[Keys];
+// type V1 = 1
+type V1 = (typeof employee)['id'];
+// type V2 = "Bobby Hadz"
+type V2 = (typeof employee)['name'];
+// type V3 = 100
+type V3 = (typeof employee)['salary'];
+
+
+// -----------------------------------------------------------------
 function foo2<T extends number | boolean | string>(param: T): T extends string ? number : boolean;
 
 function foo2(param: unknown): number | boolean {
@@ -102,19 +131,19 @@ type t2 = {
 
 // let b: t2 = {a: 'sdf'};
 
- // -----------------------------------------------------------------
-  type FirstIfString<T> = T extends [infer S, ...unknown[]]
-  ? S extends string
-    ? S
-    : never
-  : never;
-  
-  // OR:
-  
-  type FirstIfString<T> =
-    T extends [infer S extends string, ...unknown[]]
-        ? S
-        : never;
-  
-  type A = FirstIfString<[string, number, boolean]> // string
-  type B = FirstIfString<[boolean, number, string]> // never
+// -----------------------------------------------------------------
+type FirstIfString<T> = T extends [infer S, ...unknown[]]
+? S extends string
+  ? S
+  : never
+: never;
+
+// OR:
+
+type FirstIfString<T> =
+  T extends [infer S extends string, ...unknown[]]
+      ? S
+      : never;
+
+type A = FirstIfString<[string, number, boolean]> // string
+type B = FirstIfString<[boolean, number, string]> // never
