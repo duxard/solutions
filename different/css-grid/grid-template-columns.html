@@ -9,6 +9,13 @@
   .table4 { grid-template-columns: 1fr auto auto auto }
   .table5 { grid-template-columns: 1fr 1fr 1fr 1fr }
 
+  /* For dutch tails: */
+  .table6 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) }
+  .table7 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) }
+
+  /* fit-content basically sets max-width for the column */
+  .table8 { grid-template-columns: fit-content(200px) fit-content(200px) minmax(200px, 1fr) auto}
+
   .grid-container {
     display: grid;
     grid-gap: 10px;
@@ -26,41 +33,60 @@
 </style>
 </head>
 <body>
-
-<div class="grid-container table1">
-  <div class="item1">111111 222</div>
-  <div class="item2">111111 222</div>
-  <div class="item3">3</div>  
-  <div class="item4">4</div>
-</div>
-<br>
-<div class="grid-container table2">
-  <div class="item5">1</div>
-  <div class="item6">1</div>
-  <div class="item7">1</div>
-  <div class="item8">1</div>
-</div>
-<br>
-<div class="grid-container table3">
-  <div class="item5">1</div>
-  <div class="item6">1</div>
-  <div class="item7">1</div>
-  <div class="item8">1</div>
-</div>
-<br>
-<div class="grid-container table4">
-  <div class="item5">1</div>
-  <div class="item6">1</div>
-  <div class="item7">1</div>
-  <div class="item8">1</div>
-</div>
-<br>
-<div class="grid-container table5">
-  <div class="item5">1</div>
-  <div class="item6">1</div>
-  <div class="item7">1</div>
-  <div class="item8">1</div>
-</div>
-
+  <div class="grid-container table1">
+    <div class="item1">111111 222</div>
+    <div class="item2">111111 222</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+  </div>
+  <br>
+  <div class="grid-container table2">
+    <div class="item5">1</div>
+    <div class="item6">1</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
+  <br>
+  <div class="grid-container table3">
+    <div class="item5">1</div>
+    <div class="item6">1</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
+  <br>
+  <div class="grid-container table4">
+    <div class="item5">1</div>
+    <div class="item6">1</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
+  <br>
+  <div class="grid-container table5">
+    <div class="item5">1</div>
+    <div class="item6">1</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
+  <br>
+  <div class="grid-container table6">
+    <div class="item5">1</div>
+    <div class="item6">1</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
+  <br>
+  <div class="grid-container table7">
+    <div class="item5">1</div>
+    <div class="item6">1</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
+  <br>
+  <div class="grid-container table8">
+    <div class="item5">Lorem ipsum</div>
+    <div class="item6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias beatae ipsa necessitatibus vel! Ducimus error iure minima natus provident!</div>
+    <div class="item7">1</div>
+    <div class="item8">1</div>
+  </div>
 </body>
 </html>
