@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      height: 400px;
+    }
+    main {
+      flex-grow: 1;
+      outline: 2px solid blue;
+    }
+    aside {
+      flex-grow: 1;
+      outline: 2px solid red;
+    }
+
+    .main div:nth-child(1) {
+      background-color: #0a4e02;
+    }
+    .main div:nth-child(2) {
+      background-color: #ffdf04;
+    }
+
+    .main {
+      display: flex;
+    }
+
+    .main div {
+      flex-grow: 1;
+    }
+
+    .sidebar {
+      height: 100%;
+    }
+
+    /******************************/
+
+    body {
+      container-type: inline-size;
+      container-name: bodyContainer;
+    }
+
+    @container bodyContainer (max-width: 1280px) {
+      .wrapper {
+        background-color: #5cd5eb;
+      }
+    }
+
+    main, aside {
+      container-type: inline-size;
+    }
+
+
+    @container (max-width: 500px) {
+      .main {
+        flex-direction: column;
+      }
+      .sidebar {
+        background-color: black;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <main>
+      <div class="main">
+        <div>Subcontainer 1</div>
+        <div>Subcontainer 2</div>
+      </div>
+    </main>
+    <aside>
+      <div class="sidebar">Sidebar</div>
+    </aside>
+  </div>
+</body>
+</html>
