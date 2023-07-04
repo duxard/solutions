@@ -147,3 +147,9 @@ type FirstIfString<T> =
 
 type A = FirstIfString<[string, number, boolean]> // string
 type B = FirstIfString<[boolean, number, string]> // never
+
+
+// Array union
+// -----------------------------------------------------------------
+const arr = ['one', 'two', 'three'] as const;
+type arrValues = (typeof arr)[number];
