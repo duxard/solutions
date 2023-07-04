@@ -153,3 +153,7 @@ type B = FirstIfString<[boolean, number, string]> // never
 // -----------------------------------------------------------------
 const arr = ['one', 'two', 'three'] as const;
 type arrValues = (typeof arr)[number];
+
+// Predefined types and all strings
+// -----------------------------------------------------------------
+type IconProps = 'delete' | 'pop out' | (string & {})
