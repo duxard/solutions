@@ -5,3 +5,7 @@ type RecursivePartial<T> = {
 export function isNonNull<T>(value: T): value is NonNullable<T> {
   return value != null;
 }
+
+export const nonNullObject = <T extends object>(objectToTest: T): objectToTest is T => {
+  return Object.values(objectToTest).every(x => x !== null);
+}
