@@ -157,3 +157,24 @@ type arrValues = (typeof arr)[number];
 // Predefined types and all strings
 // -----------------------------------------------------------------
 type IconProps = 'delete' | 'pop out' | (string & {})
+
+// Extract keys of certain type
+// -----------------------------------------------------------------
+const obj = {
+  a: 'red',
+  b: 1,
+  c: true
+}
+
+type myType = {
+  a: string;
+  b: boolean;
+  c: number;
+}
+
+type ExtractKeysOfCertainType<T, Condition> = {
+  [K in keyof T]: T[K] extends Condition ? K : never;
+}[keyof T]
+
+type a = ExtractKeysOfCertainType<typeof obj, string> // "a"
+type b = ExtractKeysOfCertainType<myType, string> // "a"
